@@ -5,16 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>숫자야구게임</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="container">
-        숫자야구게임
+        <h2>숫자야구게임</h2>
+        <button id="start">번호생성</button>
 
-        <div class="typingNum">
-            <input type="text">
-            입력
-        </div>
-        
+        <form id=inputForm>
+            <input type="text" id="inputNums" maxlength="4" placeholder="숫자 4자리 입력하세요">
+            <button id="inputBtn">입력</button>
+        </form>
+
+        <sction>
+            여기에 결과가
+        </sction>
     </div>
 </body>
+<script src="/main.js"></script>
 </html>
