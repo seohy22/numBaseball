@@ -9,18 +9,22 @@
     
 </head>
 <body>
-    <div class="container">
-        <h2>숫자야구게임</h2>
-        <button id="start">번호생성</button>
+    <div id="container">
+        <header>
+            <h2>숫자야구게임</h2>
+            <span id="lifeStatus">남은 횟수 : <span id="life">10회</span></span>
+        </header>
+        <button id="start">게임시작</button>
 
         <form id=inputForm>
             <input type="text" id="inputNums" maxlength="4" placeholder="숫자 4자리 입력하세요">
             <button id="inputBtn">입력</button>
         </form>
 
-        <sction>
-            여기에 결과가
-        </sction>
+        <ul id="resultUl">
+        </ul>
+
+        <button id="restart" >재시작</button>
     </div>
 </body>
 <script src="/main.js"></script>
