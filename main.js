@@ -3,6 +3,7 @@ const inputForm = document.querySelector('#inputForm');
 const inputNums = document.querySelector('#inputNums');
 const ul = document.querySelector('#resultUl');
 const reStartBtn = document.querySelector('#restart');
+const gameStart = document.querySelector('#content');
 const ranNumArr = [];
 const userNumArr = [];
 let cond = false;
@@ -16,6 +17,8 @@ let ball = 0;
 createNum.addEventListener('click', function(){
     cond=true;
     createNum.disabled = true;
+    gameStart.style.display ='block';
+    createNum.style.display = 'none';
     inputNums.value = null;
     for(let i=0; i<4; i++){
         let ranNum = Math.floor(Math.random() * 10);
@@ -104,6 +107,7 @@ const viewResult = (viewNum,strike,ball,life) =>{
     ul.appendChild(li);
     span.innerHTML = life+"회";
 }
+
 reStartBtn.addEventListener('click',() => {
     location.reload(true);
 });
