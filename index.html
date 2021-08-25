@@ -15,14 +15,17 @@
         </header>
         <button id="start">게임시작</button>
         <div id="content">
-            <span id="lifeStatus">남은 횟수 : <span id="life">10회</span></span>
-            <form id=inputForm>
-                <input type="text" id="inputNums" maxlength="4" placeholder="숫자 4자리 입력하세요">
-                <button id="inputBtn">입력</button>
-            </form>
-    
-            <ul id="resultUl">
-            </ul>
+            <span id="lifeStatus">남은 횟수 : <span id="life">10회</span></span>            
+            <div class="game">
+                <form id=inputForm>
+                    <input type="text" id="inputNums" maxlength="4" placeholder="숫자 4자리 입력하세요">
+                    <button id="inputBtn">입력</button>
+                </form>
+
+                <ul id="resultUl">
+                    <span>- 결 과 -</span>
+                </ul>
+            </div>
 
             <button id="restart" >재시작</button>
         </div>

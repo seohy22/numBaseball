@@ -44,8 +44,15 @@ createNum.addEventListener('click', function(){
 //예외검증
 //썼던 값 검증안함
 let checkNum = number => {
+    let pattern1 =  /[0-9]/;
+    let pattern2 = /[a-zA-Z]/;
+    let pattern3 = /[~!@#$%^&*()_+|<>?:{}="]/;
+
     if(cond != true){
         return alert("시작버튼을 눌러주세요!");
+    }
+    if(!number){
+        return alert("숫자를 입력해주세요");
     }
     if(number.length !== 4){
         return alert("4자리 숫자 입력하세요");
@@ -87,6 +94,7 @@ inputForm.addEventListener('submit',(event) => {
         console.log(userNumArr.join('')+ "\t" + strike +"S" + ball + "B");
         ball=0;
         strike=0;
+        inputNums.value = null;
         if(life==0){
             inputNums.disabled = true;
             inputBtn.disabled = true;
@@ -107,7 +115,13 @@ const viewResult = (viewNum,strike,ball,life) =>{
     ul.appendChild(li);
     span.innerHTML = life+"회";
 }
-
 reStartBtn.addEventListener('click',() => {
     location.reload(true);
 });
+
+const showAnswer = (ranNumArr) =>{
+    const val = document.querySelector('.numArr');
+    for(let i=1; i<=4; i++){
+        
+    }
+}
