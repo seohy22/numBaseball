@@ -105,7 +105,8 @@ inputForm.addEventListener('submit',(event) => {
     }
 })
 
-//입력 결과 값을 뿌려줍니다 (li)
+//입력 결과 값을 뿌려줍니다
+// 0 0 이면 아웃
 const viewResult = (viewNum,strike,ball,life) =>{
     const li = document.createElement("li");
     if(strike == 0 && ball == 0){
