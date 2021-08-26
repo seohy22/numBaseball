@@ -8,7 +8,7 @@ const gameStart = document.querySelector('#content');
 
 const ranNumArr = [];
 const userNumArr = [];
-let cond = false;
+// let cond = false;
 let number;
 let life = 10;
 let strike = 0;
@@ -17,7 +17,7 @@ let ball = 0;
 // 초기번호 생성
 // 번호생성 클릭 시 임의 번호 4자리 생성합니다.
 createNum.addEventListener('click', function(){
-    cond=true;
+    // cond=true;
     createNum.disabled = true;
     gameStart.style.display ='block';
     createNum.style.display = 'none';
@@ -47,11 +47,13 @@ createNum.addEventListener('click', function(){
 //썼던 값 검증안함
 let checkNum = number => {
 
-    if(cond != true){
-        return alert("시작버튼을 눌러주세요!");
-    }
-    if(!number){
-        return alert("숫자를 입력해주세요");
+    // if(cond != true){
+    //     return alert("시작버튼을 눌러주세요!");
+    // }
+
+    //입력한 값을 숫자로 변경이 안되거나 띄어쓰기, .가 포함되있을 경우 예외처리
+    if(!Number(number) || number.includes(' ') || number.includes('.')){
+        return alert("숫자만 입력해주세요");
     }
     if(number.length !== 4){
         return alert("4자리 숫자 입력하세요");
@@ -95,16 +97,15 @@ inputForm.addEventListener('submit',(event) => {
         console.log(userNumArr.join('')+ "\t" + strike +"S" + ball + "B");
         ball=0;
         strike=0;
-        inputNums.value = null;
-        if(life==0){
-            endSetting();
-            // const li = document.createElement("li");
-            // const span = document.querySelector('#life');
-            span.innerHTML = "실패";
-            inputNums.placeholder ="정답: "+viewNum;
-            // li.appendChild(document.createTextNode("정답: "+ranNumArr.join('')));
-            // ul.appendChild(li);
-        }
+    }
+    if(life==0){
+        endSetting();
+        // const li = document.createElement("li");
+        // const span = document.querySelector('#life');
+        span.innerHTML = "실패";
+        inputNums.placeholder ="정답: "+ranNumArr.join('');
+        // li.appendChild(document.createTextNode("정답: "+ranNumArr.join('')));
+        // ul.appendChild(li);
     }
 })
 
@@ -114,6 +115,7 @@ const viewResult = (viewNum,strike,ball,life) =>{
     li.appendChild(document.createTextNode(viewNum+"\t"+strike+"S"+" "+ball+"B"));
     ul.appendChild(li);
     span.innerHTML = life+"회";
+    inputNums.value = null;
 }
 
 const endSetting = () => {
