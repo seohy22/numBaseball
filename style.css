@@ -4,7 +4,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-
 li {
   margin: 0;
   padding: 0;
@@ -19,9 +18,11 @@ h2 {
   font-size: 40px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
+  margin:0;
 }
 /* header */
 #start {
+  margin-top:30px;
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
@@ -29,6 +30,10 @@ h2 {
   border: 2px solid rgb(0, 0, 0);
   border-radius: 30px;
   box-shadow: 1px 1px 2px 1px rgba(212, 212, 212, 0.644);
+}
+
+#start:hover{
+  background: beige;
 }
 
 /* body */
@@ -44,34 +49,48 @@ h2 {
     #container {
         width:100%;
     }
+    #content {
+      padding:30px
+    }
 }
 
 #content {
   display: none;
 }
-.numArr {
-  display: flex;
-  justify-content:space-evenly;
-  padding: 15px;
-}
-
-.numArr div {
-  border: 1px solid;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  margin: 0;
-  font-size: 20px;
-}
 
 #content > span {
   font-size: large;
 }
+.game input {
+  box-sizing: border-box;
+  padding: 10px;
+  height:40px;
+  font-size: 20px;
+  margin-bottom:10px;
+  margin-top:10px;
+  width:100%;
+  border: 2px solid #9c9c9c;
+  border-radius: 10px;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid steelblue;
+}
 
 #resultUl{
     margin-top:20px;
+    margin-bottom:5px;
     font-size: 18px;
+
 }
 #resultUl li{
     margin-top:5px;
+}
+
+#restart{
+  display: none;
+  margin:0 auto;
+  width:100%;
+  padding:10px;
 }

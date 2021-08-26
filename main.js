@@ -2,8 +2,10 @@ const createNum = document.querySelector('#start');
 const inputForm = document.querySelector('#inputForm');
 const inputNums = document.querySelector('#inputNums');
 const ul = document.querySelector('#resultUl');
+const span = document.querySelector('#life');
 const reStartBtn = document.querySelector('#restart');
 const gameStart = document.querySelector('#content');
+
 const ranNumArr = [];
 const userNumArr = [];
 let cond = false;
@@ -44,9 +46,6 @@ createNum.addEventListener('click', function(){
 //예외검증
 //썼던 값 검증안함
 let checkNum = number => {
-    let pattern1 =  /[0-9]/;
-    let pattern2 = /[a-zA-Z]/;
-    let pattern3 = /[~!@#$%^&*()_+|<>?:{}="]/;
 
     if(cond != true){
         return alert("시작버튼을 눌러주세요!");
@@ -76,10 +75,12 @@ inputForm.addEventListener('submit',(event) => {
     }
 
     //랜덤값과 입력값이 같은지 비교합니다. 맞으면 정답 리턴 틀리면 비교 후 strike 및 ball값 누적
-    //표출 후 strike,ball 초기화, life 감소
+    //결과 출력 후 strike,ball 초기화, life 감소
     if(JSON.stringify(ranNumArr) === JSON.stringify(userNumArr)){
         alert("정답입니다!");
-        life = 10;
+        span.textContent = '성공!';
+        // life = 10;
+        endSetting();
     }else{
         for(i=0;i<4;i++){
             if(ranNumArr[i] == userNumArr[i]){
@@ -96,32 +97,30 @@ inputForm.addEventListener('submit',(event) => {
         strike=0;
         inputNums.value = null;
         if(life==0){
-            inputNums.disabled = true;
-            inputBtn.disabled = true;
-            const li = document.createElement("li");
-            const span = document.querySelector('#life');
+            endSetting();
+            // const li = document.createElement("li");
+            // const span = document.querySelector('#life');
             span.innerHTML = "실패";
-            li.appendChild(document.createTextNode("정답은! "+ranNumArr.join('')+" 입니다"));
-            ul.appendChild(li);
+            inputNums.placeholder ="정답: "+viewNum;
+            // li.appendChild(document.createTextNode("정답: "+ranNumArr.join('')));
+            // ul.appendChild(li);
         }
     }
 })
 
 //입력 결과 값을 뿌려줍니다 (li)
 const viewResult = (viewNum,strike,ball,life) =>{
-    const span = document.querySelector('#life');
     const li = document.createElement("li");
     li.appendChild(document.createTextNode(viewNum+"\t"+strike+"S"+" "+ball+"B"));
     ul.appendChild(li);
     span.innerHTML = life+"회";
 }
+
+const endSetting = () => {
+    inputNums.disabled = true;
+    // inputBtn.disabled = true;
+    reStartBtn.style.display ='block';
+}
 reStartBtn.addEventListener('click',() => {
     location.reload(true);
 });
-
-const showAnswer = (ranNumArr) =>{
-    const val = document.querySelector('.numArr');
-    for(let i=1; i<=4; i++){
-        
-    }
-}

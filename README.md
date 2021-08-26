@@ -1,2 +1,4 @@
 # numBaseball
-numBaseball game
+numBaseball game!
+
+HTML, JavaScript, CSS
