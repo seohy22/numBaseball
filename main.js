@@ -13,7 +13,6 @@ let number;
 let life = 10;
 let strike = 0;
 let ball = 0;
-
 // 초기번호 생성
 // 번호생성 클릭 시 임의 번호 4자리 생성합니다.
 createNum.addEventListener('click', function(){
@@ -68,6 +67,7 @@ let checkNum = number => {
 inputForm.addEventListener('submit',(event) => {
     event.preventDefault();
     number = inputNums.value;
+
     if(!checkNum(number)) {
         return;
     }
@@ -94,25 +94,25 @@ inputForm.addEventListener('submit',(event) => {
         life--;
         let viewNum = userNumArr.join('');
         viewResult(viewNum,strike,ball,life);
-        console.log(userNumArr.join('')+ "\t" + strike +"S" + ball + "B");
+        console.log(userNumArr.join('')+ "\t" + strike +"S" + ball + "B"); // 데이터 검증용
         ball=0;
         strike=0;
     }
     if(life==0){
         endSetting();
-        // const li = document.createElement("li");
-        // const span = document.querySelector('#life');
         span.innerHTML = "실패";
         inputNums.placeholder ="정답: "+ranNumArr.join('');
-        // li.appendChild(document.createTextNode("정답: "+ranNumArr.join('')));
-        // ul.appendChild(li);
     }
 })
 
 //입력 결과 값을 뿌려줍니다 (li)
 const viewResult = (viewNum,strike,ball,life) =>{
     const li = document.createElement("li");
-    li.appendChild(document.createTextNode(viewNum+"\t"+strike+"S"+" "+ball+"B"));
+    if(strike == 0 && ball == 0){
+        li.appendChild(document.createTextNode(viewNum+"\t"+"OUT"));
+    }else{
+        li.appendChild(document.createTextNode(viewNum+"\t"+strike+"S"+" "+ball+"B"));
+    }
     ul.appendChild(li);
     span.innerHTML = life+"회";
     inputNums.value = null;
