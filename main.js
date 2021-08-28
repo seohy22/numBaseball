@@ -11,8 +11,6 @@ const userNumArr = [];
 // let cond = false;
 let number;
 let life = 10;
-let strike = 0;
-let ball = 0;
 // 초기번호 생성
 // 번호생성 클릭 시 임의 번호 4자리 생성합니다.
 createNum.addEventListener('click', function(){
@@ -84,6 +82,8 @@ inputForm.addEventListener('submit',(event) => {
         // life = 10;
         endSetting();
     }else{
+        let strike = 0;
+        let ball = 0;
         for(i=0;i<4;i++){
             if(ranNumArr[i] == userNumArr[i]){
                 strike++;
